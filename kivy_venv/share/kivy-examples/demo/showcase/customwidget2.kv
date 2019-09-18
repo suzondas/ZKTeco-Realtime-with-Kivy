@@ -1,0 +1,244 @@
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+#: import hex kivy.utils.get_color_from_hex
+#: import FocusBehaviors kivy.uix.behaviors.focus
+
+ScreenManagement:
+    transition: FadeTransition()
+    TitleScreen:
+    MainScreen:
+    CreateProfile:
+    LoadProfile:
+    CreatePacket:
+
+<MainLabel@Label>:
+    font_size:50
+    bold: True
+    size_hint_x: 1
+    size_hint_y: 1.85
+    color: 0.396078431, 0.803921569, 0.807843137, 1
+    font_name: './pirulen rg.ttf'
+
+<SubLabel@Label>:
+    font_size: 35
+    bold: True
+    halign: "center"
+    size_hint_x: 1
+    size_hint_y: 1.5
+    color: 0.396078431, 0.803921569, 0.807843137, 1
+    font_name: './pirulen rg.ttf'
+
+<OtherLabel@Label>:
+    font_size: 12
+    bold: True
+    color: 0.396078431, 0.803921569, 0.807843137, 1
+    font_name: './pirulen rg.ttf'
+    text_size: self.size
+
+<Button@Button>:
+    font_size: 20
+    bold: True
+    color: 0.396078431, 0.803921569, 0.807843137, 1
+    font_name: './pirulen rg.ttf'
+    background_color: 0.02745098, 0.074509804, 0.121568627, .01
+    canvas.before:
+        Color:
+            rgba: 0.396078431, 0.803921569, 0.807843137, 1
+        Line:
+            width: 2
+            rectangle: self.x, self.y, self.width, self.height
+    on_press: self.background_color = (0.396078431, 0.803921569, 0.807843137, 1)
+    on_release: self.background_color = (0.02745098, 0.074509804, 0.121568627, .01)
+
+# TODO: Create a focus behavior to "Tab" between widgets
+<TextInput@TextInput>:
+    font_size: 12
+    color: 0.396078431, 0.803921569, 0.807843137, 1
+    font_name: './pirulen rg.ttf'
+    padding_x: 10
+    padding_y: 10
+    focus_next: None
+    focus_previous: None
+    unfocus_on_touch: True
+    background_color: 0.02745098, 0.074509804, 0.121568627, .01
+    canvas.before:
+        Color:
+            rgba: 0.396078431, 0.803921569, 0.807843137, 1
+        Line:
+            width: 1
+            rectangle: self.x, self.y, self.width, self.height
+
+<TitleScreen>:
+    id: "title"
+    FloatLayout:
+        MainLabel:
+            text: "Easy Button"
+            size_hint_x: 1
+            size_hint_y: 1.25
+
+        SubLabel:
+            text: 'Test'
+            size_hint_x: 1
+            size_hint_y: 1
+        Button:
+            text: "Click Here To Continue"
+            on_release: app.root.current = "main_screen"
+            size_hint: (.75, .15)
+            pos_hint: {'x': .12, 'y': .2}
+
+<MainScreen>:
+    name: "main_screen"
+    MainLabel:
+        text: "Home Page"
+
+    FloatLayout:
+        Button:
+            on_release: app.root.current = "create_profile"
+            text: "Create Profile"
+            size_hint: (.5, .15)
+            pos_hint: {'x': .23, 'y': .65}
+
+        Button:
+            on_release: app.root.current = "load_profile"
+            text: "Load Profile"
+            size_hint: (.5, .15)
+            pos_hint: {'x': .23, 'y': .45}
+
+        Button:
+            on_release: app.root.current = "create_packet"
+            text: "Create Packet"
+            size_hint: (.5, .15)
+            pos_hint: {'x': .23, 'y': .25}
+
+<CreateProfile>:
+    name: "create_profile"
+
+    first: first
+    middle: middle
+    last: last
+
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'top'
+        MainLabel:
+            text: "Create Profile"
+            size_hint: (1, .15)
+
+
+
+    BoxLayout:
+        size_hint: (.95, .2)
+        pos_hint: {'x': 0, 'y': .85}
+        spacing: 10
+        padding: 10
+        halign: "left"
+
+        OtherLabel:
+            text: "First"
+
+        OtherLabel:
+            text: "Middle"
+
+        OtherLabel:
+            text: "Last"
+    BoxLayout:
+        size_hint: (.95, .07)
+        pos_hint: {'x': 0, 'y': .8}
+        spacing: 20
+        padding: 10
+        halign: "right"
+        text_size: self.size
+        TextInput:
+            id: first
+        TextInput:
+            id: middle
+        TextInput:
+            id: last
+
+    BoxLayout:
+        Button:
+            on_release: app.root.current = "main_screen"
+            text: "back Home"
+            size_hint: (.5, .15)
+        Button:
+            on_release: root.save()
+            text: "Save Profile"
+            size_hint: (.5, .15)
+
+<LoadProfile>:
+    name: "load_profile"
+    first: first
+    middle: middle
+    last: last
+
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'top'
+        MainLabel:
+            text: "Load Profile"
+            size_hint: (1, .15)
+
+    BoxLayout:
+        size_hint: (.95, .2)
+        pos_hint: {'x': 0, 'y': .85}
+        spacing: 10
+        padding: 10
+        halign: "left"
+
+        OtherLabel:
+            text: "First"
+
+        OtherLabel:
+            text: "Middle"
+
+        OtherLabel:
+            text: "Last"
+
+    BoxLayout:
+        size_hint: (.95, .07)
+        pos_hint: {'x': 0, 'y': .8}
+        spacing: 20
+        padding: 10
+        halign: "right"
+        text_size: self.size
+        TextInput:
+            id: first
+        TextInput:
+            id: middle
+        TextInput:
+            id: last
+
+    BoxLayout:
+        size_hint: (.95, .2)
+        pos_hint: {'x': .4, 'y': .75}
+        spacing: 10
+        padding: 10
+        halign: "left"
+
+
+    GridLayout:
+        cols: 3
+        size_hint_x: None
+        pos_hint_y: .75
+        OtherLabel:
+            text: "Created Profiles"
+
+    BoxLayout:
+        Button:
+            on_release: app.root.current = "main_screen"
+            text: "back Home"
+            size_hint: (.5, .15)
+        Button:
+            on_release: root.load()
+            text: "Load Profile"
+            size_hint: (.5, .15)
+
+
+<CreatePacket>:
+    name: "create_packet"
+    MainLabel:
+        text: "Select Packet"
+    FloatLayout:
+        Button:
+            on_release: app.root.current = "main_screen"
+            text: "back Home"
+            size_hint: (1, .15)

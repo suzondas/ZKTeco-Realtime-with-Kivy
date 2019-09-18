@@ -1,0 +1,25 @@
+#:import Factory kivy.factory.Factory
+
+ShowcaseScreen:
+    name: 'ScreenManager'
+    fullscreen: True
+
+
+    ScreenManager:
+        id: sm
+
+        Screen:
+            name: 'screen1'
+            canvas.before:
+                Color:
+                    rgb: .8, .2, .2
+                Rectangle:
+                    size: self.size
+                
+            AnchorLayout:
+                Button:
+                    size_hint: None, None
+                    size: '150dp', '48dp'
+                    text: 'Go to screen 2'
+                    on_release: sm.current = 'screen2'
+
