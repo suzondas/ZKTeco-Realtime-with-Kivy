@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="71f63c11-f2b2-45b2-94a8-906caeb07fd6" name="Default Changelist" comment="" />
+    <list default="true" id="71f63c11-f2b2-45b2-94a8-906caeb07fd6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/demo/showcase/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/showcase/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/demo/showcase/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/showcase/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/showcase/main.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -9,23 +13,28 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/text/pango_demo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="279" column="23" lean-forward="true" selection-start-line="279" selection-start-column="23" selection-end-line="279" selection-end-column="23" />
+            <state relative-caret-position="6417">
+              <caret line="279" column="23" selection-start-line="279" selection-start-column="23" selection-end-line="279" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demo/showcase/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="40" selection-start-line="40" selection-end-line="40" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/demo/showcase/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="58" column="7" lean-forward="true" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="12" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/demo/lib/pyzk/zkmodules/terminal.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -56,6 +65,9 @@
       <dir>C:\Users\Suzon\Desktop\realtime\kivy_venv\share\kivy-examples\demo\showcase\data</dir>
     </dirStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -69,12 +81,12 @@
     <option name="width" value="1346" />
     <option name="height" value="688" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -117,6 +129,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -147,23 +160,19 @@
       <option name="presentableId" value="Default" />
       <updated>1567603022268</updated>
       <workItem from="1567603023509" duration="4194000" />
+      <workItem from="1568917114728" duration="8000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4194000" />
+    <option name="totallyTimeSpent" value="4202000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20347957" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2065053" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -171,11 +180,16 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Remote Host" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Remote Host" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,8 +241,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/text/pango_demo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="279" column="23" lean-forward="true" selection-start-line="279" selection-start-column="23" selection-end-line="279" selection-end-column="23" />
+        <state relative-caret-position="6417">
+          <caret line="279" column="23" selection-start-line="279" selection-start-column="23" selection-end-line="279" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -242,9 +256,12 @@
     <entry file="file://$PROJECT_DIR$/demo/showcase/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
-          <caret line="58" column="7" lean-forward="true" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="12" />
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/lib/pyzk/zkmodules/terminal.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

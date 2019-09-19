@@ -54,13 +54,13 @@ evntMsg = ''  # event wise message
 
 # functions to produce record with null value
 def noResponseRecord():
+    layout.add_widget(Label(text="--", size_hint_x=None, width=250))
+    layout.add_widget(Label(text="--", size_hint_x=None, width=50))
     layout.add_widget(Label(text="--", size_hint_x=None, width=100))
     layout.add_widget(Label(text="--", size_hint_x=None, width=100))
-    layout.add_widget(Label(text="--", size_hint_x=None, width=100))
-    layout.add_widget(Label(text="--", size_hint_x=None, width=100))
-    layout.add_widget(Label(text="--", size_hint_x=None, width=100))
-    layout.add_widget(Label(text="--", size_hint_x=None, width=100))
-    layout.add_widget(Label(text="--", size_hint_x=None, width=100))
+    layout.add_widget(Label(text="--", size_hint_x=None, width=150))
+    layout.add_widget(Label(text="--", size_hint_x=None, width=50))
+    layout.add_widget(Label(text="--", size_hint_x=None, width=150))
     layout.add_widget(Label(text="--", size_hint_x=None, width=100))
 
 # Listen Event and then Fetch data if member successfully verified and then fetch details of that user based on
@@ -93,13 +93,13 @@ def eventThread():
         data = json.loads(json_url.read())
 
         if data["stat"] == 200:
-            layout.add_widget(Label(text=str(data["name"]), size_hint_x=None, width=100))
-            layout.add_widget(Label(text=str(data["id"]), size_hint_x=None, width=100))
+            layout.add_widget(Label(text=str(data["name"]), size_hint_x=None, width=250))
+            layout.add_widget(Label(text=str(data["id"]), size_hint_x=None, width=50))
             layout.add_widget(Label(text=str(data['membership_valid_from']), size_hint_x=None, width=100))
             layout.add_widget(Label(text=str(data['membership_valid_to']), size_hint_x=None, width=100))
-            layout.add_widget(Label(text=str(data['category']), size_hint_x=None, width=100))
-            layout.add_widget(Label(text=str(data['branch']), size_hint_x=None, width=100))
-            layout.add_widget(Label(text=str(userTime), size_hint_x=None, width=100))
+            layout.add_widget(Label(text=str(data['category']), size_hint_x=None, width=150))
+            layout.add_widget(Label(text=str(data['branch']), size_hint_x=None, width=50))
+            layout.add_widget(Label(text=str(userTime), size_hint_x=None, width=150))
             layout.add_widget(Label(text=str(data['status']), size_hint_x=None, width=100))
         else:
             noResponseRecord()
@@ -136,13 +136,13 @@ def listenEvent():
 
 # Main Layout. Here 8 columns for showing details of accessed users
 layout = GridLayout(cols=8, row_force_default=True, row_default_height=40)
-layout.add_widget(Label(text='Name', size_hint_x=None, width=100))
-layout.add_widget(Label(text='ID No', size_hint_x=None, width=100))
+layout.add_widget(Label(text='Name', size_hint_x=None, width=250))
+layout.add_widget(Label(text='ID No', size_hint_x=None, width=50))
 layout.add_widget(Label(text='Starting Date', size_hint_x=None, width=100))
 layout.add_widget(Label(text='End Date', size_hint_x=None, width=100))
-layout.add_widget(Label(text='Category', size_hint_x=None, width=100))
-layout.add_widget(Label(text='Branch', size_hint_x=None, width=100))
-layout.add_widget(Label(text='Time', size_hint_x=None, width=100))
+layout.add_widget(Label(text='Category', size_hint_x=None, width=150))
+layout.add_widget(Label(text='Branch', size_hint_x=None, width=50))
+layout.add_widget(Label(text='Time', size_hint_x=None, width=150))
 layout.add_widget(Label(text='Payment Status', size_hint_x=None, width=100))
 
 class RealTime(App):
