@@ -5,13 +5,17 @@ ALl rights reserved by Suzon Das [https://www.github.com/suzon-das]
 '''
 
 # Python Libraries
+import webbrowser
 from os.path import dirname, join
 from threading import Thread
 from time import time
 from urllib.request import urlopen
 import winsound
 import json
-import datetime
+from kivy.core.window import Window
+
+from kivy.uix.scrollview import ScrollView
+
 from utils import *
 
 # Kivy libraries [https://kivy.org/]
@@ -27,12 +31,13 @@ from kivy.uix.button import Button
 from kivy.uix.gridlayout import GridLayout
 from kivy.core.window import Window
 from kivy.network.urlrequest import UrlRequest
+from functools import partial
 
 # ZKTeco Python Libraries [https://github.com/fananimi/pyzk]. Kudos to Fanani M. Ihsan
 import pyzk.pyzk as pyzk
 from pyzk.zkmodules.defs import *
 from pyzk.misc import *
-
+from kivy.core.audio import SoundLoader
 # Zkteco libraries initializing
 ip_address = '103.91.229.62'  # set the ip address of the device to test
 machine_port = 4370
@@ -54,14 +59,16 @@ evntMsg = ''  # event wise message
 
 # functions to produce record with null value
 def noResponseRecord():
-    layout.add_widget(Label(text="--", size_hint_x=None, width=250))
-    layout.add_widget(Label(text="--", size_hint_x=None, width=50))
-    layout.add_widget(Label(text="--", size_hint_x=None, width=100))
-    layout.add_widget(Label(text="--", size_hint_x=None, width=100))
-    layout.add_widget(Label(text="--", size_hint_x=None, width=150))
-    layout.add_widget(Label(text="--", size_hint_x=None, width=50))
-    layout.add_widget(Label(text="--", size_hint_x=None, width=150))
-    layout.add_widget(Label(text="--", size_hint_x=None, width=100))
+    layout.add_widget(Label(text="--", size_hint_x=None, width=250,  color= (1.0, 0.0, 0.0, 1.0)))
+    layout.add_widget(Label(text="--", size_hint_x=None, width=50,  color= (1.0, 0.0, 0.0, 1.0)))
+    layout.add_widget(Label(text="--", size_hint_x=None, width=100,  color= (1.0, 0.0, 0.0, 1.0)))
+    layout.add_widget(Label(text="--", size_hint_x=None, width=100,  color= (1.0, 0.0, 0.0, 1.0)))
+    layout.add_widget(Label(text="--", size_hint_x=None, width=150,  color= (1.0, 0.0, 0.0, 1.0)))
+    layout.add_widget(Label(text="--", size_hint_x=None, width=50,  color= (1.0, 0.0, 0.0, 1.0)))
+    layout.add_widget(Label(text="--", size_hint_x=None, width=150,  color= (1.0, 0.0, 0.0, 1.0)))
+    layout.add_widget(Label(text="--", size_hint_x=None, width=100,  color= (1.0, 0.0, 0.0, 1.0)))
+    layout.add_widget(
+        Button(text='No Link', size_hint_x=None, width=80,  background_color =(1.0, 0.0, 0.0, 1.0)))
 
 # Listen Event and then Fetch data if member successfully verified and then fetch details of that user based on
 # member id returned from machine and then adding those data to layout row
@@ -86,7 +93,13 @@ def eventThread():
         evntMsg = 'User Accessed'
         t = tuple(z.parse_event_attlog())
         userId = t[0]  # Member Id set on machine
+        # userId = 23232  # Member Id set on machine
         userTime = t[2]  # Time of access
+        # userTime = 'asdfasfd'  # Time of access
+
+        if userId==555:
+            sound = SoundLoader.load('m.wav')
+            sound.play()
 
         # URL to fetch details of that accessed member
         json_url = urlopen('http://door.fitnessplusbd.com/uttara/users/userSubscription?id=' + str(userId))
@@ -101,6 +114,7 @@ def eventThread():
             layout.add_widget(Label(text=str(data['branch']), size_hint_x=None, width=50))
             layout.add_widget(Label(text=str(userTime), size_hint_x=None, width=150))
             layout.add_widget(Label(text=str(data['status']), size_hint_x=None, width=100))
+            layout.add_widget(Button(text='Go', size_hint_x=None, width=50, on_press=partial(webbrowser.open, 'http://door.fitnessplusbd.com/uttara/users/redirectFromKivy?id='+str(data["id"]))))
         else:
             noResponseRecord()
     elif ev == EF_FINGER:
@@ -134,22 +148,27 @@ def listenEvent():
     t.daemon = True
     t.start()
 
+
 # Main Layout. Here 8 columns for showing details of accessed users
-layout = GridLayout(cols=8, row_force_default=True, row_default_height=40)
-layout.add_widget(Label(text='Name', size_hint_x=None, width=250))
-layout.add_widget(Label(text='ID No', size_hint_x=None, width=50))
-layout.add_widget(Label(text='Starting Date', size_hint_x=None, width=100))
-layout.add_widget(Label(text='End Date', size_hint_x=None, width=100))
-layout.add_widget(Label(text='Category', size_hint_x=None, width=150))
-layout.add_widget(Label(text='Branch', size_hint_x=None, width=50))
-layout.add_widget(Label(text='Time', size_hint_x=None, width=150))
-layout.add_widget(Label(text='Payment Status', size_hint_x=None, width=100))
+layout = GridLayout(cols=9, spacing=10, size_hint_y=None, row_force_default=True, row_default_height=40)
+layout.bind(minimum_height=layout.setter('height'))
+layout.add_widget(Label(text='Name', size_hint_x=None, width=250, height=40))
+layout.add_widget(Label(text='ID No', size_hint_x=None, width=50, height=40))
+layout.add_widget(Label(text='Starting Date', size_hint_x=None, width=100, height=40))
+layout.add_widget(Label(text='End Date', size_hint_x=None, width=100, height=40))
+layout.add_widget(Label(text='Category', size_hint_x=None, width=150, height=40))
+layout.add_widget(Label(text='Branch', size_hint_x=None, width=50, height=40))
+layout.add_widget(Label(text='Time', size_hint_x=None, width=150, height=40))
+layout.add_widget(Label(text='Payment Status', size_hint_x=None, width=100, height=40))
+layout.add_widget(Label(text='Action', size_hint_x=None, width=50, height=30))
+root = ScrollView(size_hint=(1, None), size=(Window.width, Window.height)) # !important
+root.add_widget(layout)
 
 class RealTime(App):
     def build(self):
         listenEvent()
-        return layout
+        return root
 
 # Window.fullscreen = True
-
+Window.clearcolor = (0.106, 0.282, 0.435, 1)
 RealTime().run()

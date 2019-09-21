@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71f63c11-f2b2-45b2-94a8-906caeb07fd6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/demo/showcase/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/showcase/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/demo/showcase/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/showcase/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/showcase/main.py" afterDir="false" />
     </list>
@@ -23,18 +22,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/demo/showcase/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="230">
-              <caret line="40" selection-start-line="40" selection-end-line="40" />
+              <caret line="43" selection-start-line="43" selection-end-line="43" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/demo/lib/pyzk/zkmodules/terminal.py">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -87,49 +81,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="kivy-examples" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kivy-examples" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kivy-examples" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kivy-examples" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kivy-examples" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kivy-examples" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="showcase" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kivy-examples" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kivy-examples" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="showcase" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kivy-examples" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kivy-examples" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="showcase" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="screens" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kivy-examples" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kivy-examples" type="462c0819:PsiDirectoryNode" />
-              <item name="text" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -161,16 +114,17 @@
       <updated>1567603022268</updated>
       <workItem from="1567603023509" duration="4194000" />
       <workItem from="1568917114728" duration="8000" />
+      <workItem from="1569087994973" duration="53000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4202000" />
+    <option name="totallyTimeSpent" value="4255000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2065053" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25340393" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -253,15 +207,15 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/demo/lib/pyzk/zkmodules/terminal.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/demo/showcase/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/lib/pyzk/zkmodules/terminal.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
