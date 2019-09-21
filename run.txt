@@ -1,3 +1,2 @@
-cd C:\Users\Suzon\Desktop\realtime
-kivy_venv\Scripts\activate
-python kivy_venv\share\kivy-examples\demo\showcase\main.py 
+cd C:\Users\Suzon\Desktop\realtime\realtime
+python main.py 
