@@ -38,6 +38,7 @@ import pyzk.pyzk as pyzk
 from pyzk.zkmodules.defs import *
 from pyzk.misc import *
 from kivy.core.audio import SoundLoader
+
 # Zkteco libraries initializing
 ip_address = '103.91.229.62'  # set the ip address of the device to test
 machine_port = 4370
@@ -57,18 +58,20 @@ z.enable_realtime()
 # Initializing global variables
 evntMsg = ''  # event wise message
 
+
 # functions to produce record with null value
 def noResponseRecord():
-    layout.add_widget(Label(text="--", size_hint_x=None, width=250,  color= (1.0, 0.0, 0.0, 1.0)))
-    layout.add_widget(Label(text="--", size_hint_x=None, width=50,  color= (1.0, 0.0, 0.0, 1.0)))
-    layout.add_widget(Label(text="--", size_hint_x=None, width=100,  color= (1.0, 0.0, 0.0, 1.0)))
-    layout.add_widget(Label(text="--", size_hint_x=None, width=100,  color= (1.0, 0.0, 0.0, 1.0)))
-    layout.add_widget(Label(text="--", size_hint_x=None, width=150,  color= (1.0, 0.0, 0.0, 1.0)))
-    layout.add_widget(Label(text="--", size_hint_x=None, width=50,  color= (1.0, 0.0, 0.0, 1.0)))
-    layout.add_widget(Label(text="--", size_hint_x=None, width=150,  color= (1.0, 0.0, 0.0, 1.0)))
-    layout.add_widget(Label(text="--", size_hint_x=None, width=100,  color= (1.0, 0.0, 0.0, 1.0)))
+    layout.add_widget(Label(text="--", size_hint_x=None, width=250, color=(1.0, 0.0, 0.0, 1.0)))
+    layout.add_widget(Label(text="--", size_hint_x=None, width=50, color=(1.0, 0.0, 0.0, 1.0)))
+    layout.add_widget(Label(text="--", size_hint_x=None, width=100, color=(1.0, 0.0, 0.0, 1.0)))
+    layout.add_widget(Label(text="--", size_hint_x=None, width=100, color=(1.0, 0.0, 0.0, 1.0)))
+    layout.add_widget(Label(text="--", size_hint_x=None, width=150, color=(1.0, 0.0, 0.0, 1.0)))
+    layout.add_widget(Label(text="--", size_hint_x=None, width=50, color=(1.0, 0.0, 0.0, 1.0)))
+    layout.add_widget(Label(text="--", size_hint_x=None, width=150, color=(1.0, 0.0, 0.0, 1.0)))
+    layout.add_widget(Label(text="--", size_hint_x=None, width=100, color=(1.0, 0.0, 0.0, 1.0)))
     layout.add_widget(
-        Button(text='No Link', size_hint_x=None, width=80,  background_color =(1.0, 0.0, 0.0, 1.0)))
+        Button(text='No Link', size_hint_x=None, width=80, background_color=(1.0, 0.0, 0.0, 1.0)))
+
 
 # Listen Event and then Fetch data if member successfully verified and then fetch details of that user based on
 # member id returned from machine and then adding those data to layout row
@@ -93,17 +96,22 @@ def eventThread():
         evntMsg = 'User Accessed'
         t = tuple(z.parse_event_attlog())
         userId = t[0]  # Member Id set on machine
-        # userId = 23232  # Member Id set on machine
+        # userId = 100482  # Member Id set on machine
         userTime = t[2]  # Time of access
         # userTime = 'asdfasfd'  # Time of access
 
-        if userId==555:
+        if userId == 555:
             sound = SoundLoader.load('m.wav')
             sound.play()
 
-        # URL to fetch details of that accessed member
-        json_url = urlopen('http://door.fitnessplusbd.com/uttara/users/userSubscription?id=' + str(userId))
-        data = json.loads(json_url.read())
+        from urllib.request import Request, urlopen
+
+        req = Request(
+            'http://door.fitnessplusbd.com/uttara/users/userSubscription?id=' + str(userId),
+            headers={'User-Agent': 'Mozilla/5.0'})
+        webpage = urlopen(req).read()
+
+        data = json.loads(webpage)
 
         if data["stat"] == 200:
             layout.add_widget(Label(text=str(data["name"]), size_hint_x=None, width=250))
@@ -114,7 +122,9 @@ def eventThread():
             layout.add_widget(Label(text=str(data['branch']), size_hint_x=None, width=50))
             layout.add_widget(Label(text=str(userTime), size_hint_x=None, width=150))
             layout.add_widget(Label(text=str(data['status']), size_hint_x=None, width=100))
-            layout.add_widget(Button(text='Go', size_hint_x=None, width=50, on_press=partial(webbrowser.open, 'http://door.fitnessplusbd.com/uttara/users/redirectFromKivy?id='+str(data["id"]))))
+            layout.add_widget(Button(text='Go', size_hint_x=None, width=50, on_press=partial(webbrowser.open,
+                                                                                             'http://door.fitnessplusbd.com/uttara/users/redirectFromKivy?id=' + str(
+                                                                                                 data["id"]))))
         else:
             noResponseRecord()
     elif ev == EF_FINGER:
@@ -142,6 +152,7 @@ def eventThread():
     # Callback to own so that the listening event continues after one event
     eventThread()
 
+
 # Calling the Event Listener function using thread
 def listenEvent():
     t = Thread(target=eventThread)
@@ -161,13 +172,15 @@ layout.add_widget(Label(text='Branch', size_hint_x=None, width=50, height=40))
 layout.add_widget(Label(text='Time', size_hint_x=None, width=150, height=40))
 layout.add_widget(Label(text='Payment Status', size_hint_x=None, width=100, height=40))
 layout.add_widget(Label(text='Action', size_hint_x=None, width=50, height=30))
-root = ScrollView(size_hint=(1, None), size=(Window.width, Window.height)) # !important
+root = ScrollView(size_hint=(1, None), size=(Window.width, Window.height))  # !important
 root.add_widget(layout)
+
 
 class RealTime(App):
     def build(self):
         listenEvent()
         return root
+
 
 # Window.fullscreen = True
 Window.clearcolor = (0.106, 0.282, 0.435, 1)
