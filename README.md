@@ -6,12 +6,13 @@ ZKTeco Attendance Realtime Monitoring is a windows application developed with Py
 ###### Voice for Welcome message, User name, Membership Expiry etc </br>
 ###### Details button bring to the link of details of that user </br>
 
-##### Install Python 3.5+
-#####  Install Latest Kivy version
-#####  Download this repository
-#####  Open the main.py in realtime directory and install all dependencies
-#####  Open CMD and cd to the repository directory
-#####  now type - python realtime\main.py 
+##### Installation
+###### Install Python 3.5+
+######  Install Latest Kivy version
+######  Download this repository
+######  Open the main.py in realtime directory and install all dependencies
+######  Open CMD and cd to the repository directory
+######  now type - python realtime\main.py </br>
 #####  the program will run 
 ###### You might be interested in build version of this application (link will be available soon)
 
