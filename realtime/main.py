@@ -38,7 +38,7 @@ engine.say('Welcome to Fitness plus BD')  # Welcome message from application
 engine.runAndWait()
 
 # Zkteco libraries initializing
-ip_address = '103.91.229.62'  # set the ip address of the Zkteco device to test
+ip_address = ''  # set the ip address of the Zkteco device to test
 machine_port = 4370
 
 z = pyzk.ZKSS()
