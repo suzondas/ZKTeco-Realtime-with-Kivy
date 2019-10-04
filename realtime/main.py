@@ -26,19 +26,9 @@ import pyzk.pyzk as pyzk
 from pyzk.zkmodules.defs import *
 from pyzk.misc import *
 
-# Set Text-Speech configuration
-engine = pyttsx3.init()
-rate = engine.getProperty('rate') # speed of speech
-
-# Use female English voice
-en_voice_id = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0"
-engine.setProperty('voice', en_voice_id)
-engine.setProperty('rate', 180)
-engine.say('Welcome to Fitness plus BD')  # Welcome message from application
-engine.runAndWait()
 
 # Zkteco libraries initializing
-ip_address = ''  # set the ip address of the Zkteco device to test
+ip_address = '103.91.229.62'  # set the ip address of the Zkteco device to test
 machine_port = 4370
 
 z = pyzk.ZKSS()
@@ -119,6 +109,7 @@ def eventThread():
             layout.add_widget(Label(text=str(data['category']), size_hint_x=None, width=150))
             layout.add_widget(Label(text=str(data['branch']), size_hint_x=None, width=50))
             layout.add_widget(Label(text=str(userTime), size_hint_x=None, width=150))
+
 
             # comparing membership payment (Not Paid, Paid, Partially Paid)
             if str(data['status']) == 'Not Paid':
@@ -208,6 +199,16 @@ layout.add_widget(
           underline=True))
 root = ScrollView(size_hint=(1, None), size=(Window.width, Window.height), bar_width=4)  # !important
 root.add_widget(layout)
+# Set Text-Speech configuration
+engine = pyttsx3.init()
+rate = engine.getProperty('rate') # speed of speech
+
+# Use female English voice
+en_voice_id = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0"
+engine.setProperty('voice', en_voice_id)
+engine.setProperty('rate', 180)
+engine.say('Welcome')  # Welcome message from application
+engine.runAndWait()
 
 
 # The app part
